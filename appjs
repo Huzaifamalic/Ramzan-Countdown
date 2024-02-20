@@ -1,0 +1,26 @@
+var targetdate = new Date('March 11, 2024 00:00:00').getTime();
+ 
+function ramzan(){
+    var current = new Date().getTime();
+    difference = targetdate - current;
+
+    var secend = 1000;
+    var minite =  secend * 60
+    var hours = minite * 60;
+    var day   = hours * 24;
+
+    var d = Math.floor(difference /(day));
+    var h = Math.floor((difference % (day)) / (hours));
+    var m = Math.floor((difference % (hours)) /  (minite));
+    var s = Math.floor((difference % (minite))     /   (secend));
+   
+    document.getElementById('day').innerText = d
+    document.getElementById('hour').innerText = h
+    document.getElementById('minit').innerText = m
+    document.getElementById('secend').innerText = s
+}
+
+
+setInterval(function(){
+    ramzan();
+},1000);
